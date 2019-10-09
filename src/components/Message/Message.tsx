@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import { COLORS } from "../../styles";
 import { mixin as bubbleMixin } from "../Bubble";
+import { respectSpaces } from "../../lib/respectSpaces";
 
 export interface TMessage {
   body: string;
   author: "ME" | "THEM";
+  timestamp: number;
 }
 
 interface Props {
@@ -53,14 +55,14 @@ const Container = styled.div<Pick<TMessage, "author">>`
     }[author])}
 `;
 
-const Bubble = styled.div<Pick<TMessage, "author">>`
+const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
   ${bubbleMixin}
   position: relative;
-  margin: 5px 0;
   max-width: 255px;
-  color: white;
+  color: ${COLORS.bg};
   position: relative;
   display: inline-block;
+  margin: 5px 0;
 
   &:before,
   &:after {
@@ -121,7 +123,7 @@ const Bubble = styled.div<Pick<TMessage, "author">>`
           z-index: 3;
           left: 4px;
           width: 26px;
-          background: white;
+          background: ${COLORS.bg};
           border-bottom-right-radius: 10px;
           transform: translate(-30px, -2px);
         }
@@ -130,9 +132,21 @@ const Bubble = styled.div<Pick<TMessage, "author">>`
 `;
 
 export const Message: React.FC<Props> = ({ message: { body, author } }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [lines, setNumberOfLines] = useState(1);
+
+  useEffect(() => {
+    ref.current && setNumberOfLines(ref.current.getClientRects().length);
+  }, []);
+
   return (
     <Container author={author}>
-      <Bubble author={author}>{body}</Bubble>
+      <Bubble author={author} lines={lines}>
+        <span
+          ref={ref}
+          dangerouslySetInnerHTML={{ __html: respectSpaces(body) }}
+        />
+      </Bubble>
     </Container>
   );
 };

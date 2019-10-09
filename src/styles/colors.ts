@@ -1,10 +1,59 @@
-export const COLORS = {
-  bg: "#fff",
-  inputFg: "#000000",
-  inputBg: "#fff",
-  inputBorder: "#cbcbcc",
-  themBg: "#e9e9eb",
-  themFg: "#000000",
-  meBg: "#0d7aff",
-  meFg: "#fff"
+import parameters from "queryparams";
+
+const { skin }: { skin: "default" } = parameters({
+  skin: "default"
+});
+
+interface Skin {
+  bg: string;
+  inputFg: string;
+  inputBg: string;
+  inputBorder: string;
+  placeholderFG: string;
+  themBg: string;
+  themFg: string;
+  meBg: string;
+  meFg: string;
+  cursorFg: string;
+}
+
+const SKINS: { [name: string]: Skin } = {
+  default: {
+    bg: "#fff",
+    inputFg: "#000000",
+    inputBg: "#fff",
+    inputBorder: "#CECED1",
+    placeholderFG: "#CECED1",
+    themBg: "#E9E9EB",
+    themFg: "#000000",
+    meBg: "#0B82FE",
+    meFg: "#fff",
+    cursorFg: "#426BF2"
+  },
+  dark: {
+    bg: "#000",
+    inputFg: "#fff",
+    inputBg: "#141414",
+    inputBorder: "#545457",
+    placeholderFG: "#545457",
+    themBg: "#262628",
+    themFg: "#fff",
+    meBg: "#1287FF",
+    meFg: "#fff",
+    cursorFg: "#426BF2"
+  },
+  plain: {
+    bg: "#fff",
+    inputFg: "#000",
+    inputBg: "#fff",
+    inputBorder: "#fff",
+    placeholderFG: "#999",
+    themBg: "#fff",
+    themFg: "blue",
+    meBg: "#fff",
+    meFg: "red",
+    cursorFg: "#0064d3"
+  }
 };
+
+export const COLORS = SKINS[skin];
