@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import parameters from "queryparams";
+import { block } from "audiate";
 
 import "./index.css";
 
@@ -13,9 +14,16 @@ const { autoPlay, amount }: { autoPlay: boolean; amount: number } = parameters({
   amount: 1
 });
 
-ReactDOM.render(
-  <App autoPlay={autoPlay} amount={amount} />,
-  document.getElementById("root")
-);
+const handleEnable = () =>
+  ReactDOM.render(
+    <App autoPlay={autoPlay} amount={amount} />,
+    document.getElementById("root")
+  );
+
+block({
+  message: "Enable audio",
+  clickToEnable: true,
+  onEnable: handleEnable
+});
 
 serviceWorker.unregister();
