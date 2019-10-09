@@ -6,12 +6,9 @@ export const mixin = css`
   font-size: 1rem;
   line-height: 1.25;
   font-weight: normal;
-
-  /* Hyphenate */
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
-  hyphens: auto;
 
   ${({ lines = 1 }: { lines?: number }) =>
     lines > 1 &&

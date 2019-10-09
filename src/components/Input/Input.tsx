@@ -1,18 +1,10 @@
-import React, { useState, useCallback } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useCallback, useRef, useEffect } from "react";
+import styled from "styled-components";
 
 import { COLORS } from "../../styles";
 import { mixin as bubbleMixin } from "../Bubble";
 import { respectSpaces } from "../../lib/respectSpaces";
-
-const fade = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-`;
+import { CARET_WIDTH, Caret } from "../Caret";
 
 const Form = styled.form`
   padding: 0 0.5em;
@@ -41,18 +33,9 @@ const Value = styled.input`
   opacity: 0;
 `;
 
-const Sized = styled.div`
+const Wrapper = styled.div`
   position: relative;
-`;
-
-const CARET_WIDTH = 2;
-
-const Caret = styled.div`
-  position: absolute;
-  width: ${CARET_WIDTH}px;
-  height: 100%;
-  background-color: ${COLORS.cursorFg};
-  animation: ${fade} 1s infinite cubic-bezier(1, 0, 0, 1);
+  width: 100%;
 `;
 
 const Placeholder = styled.div`
@@ -79,24 +62,37 @@ export const Input: React.FC<Props> = ({
   input,
   disabled
 }) => {
+  const ref = useRef<HTMLSpanElement>(null);
   const [mode, setMode] = useState(Mode.FOCUSED);
+  const [lines, setNumberOfLines] = useState(1);
+
+  const handleLines = useCallback(() => {
+    ref.current && setNumberOfLines(ref.current.getClientRects().length);
+  }, []);
 
   const handleBlur = useCallback(() => setMode(Mode.BLURRED), []);
   const handleFocus = useCallback(() => setMode(Mode.FOCUSED), []);
 
+  useEffect(() => handleLines(), [handleLines, input]);
+
   return (
     <Form onSubmit={onSubmit} onBlur={handleBlur} onFocus={handleFocus}>
-      <Field>
+      <Field lines={lines}>
         {input ? (
-          <span dangerouslySetInnerHTML={{ __html: respectSpaces(input) }} />
+          <Wrapper>
+            <span
+              ref={ref}
+              dangerouslySetInnerHTML={{ __html: respectSpaces(input) }}
+            />
+            <Caret key={input} focused={mode === Mode.FOCUSED} />
+          </Wrapper>
         ) : (
-          <Placeholder>Message</Placeholder>
+          <Wrapper>
+            <Placeholder>Message</Placeholder>
+            <Caret key={input} focused={mode === Mode.FOCUSED} />
+            &nbsp;
+          </Wrapper>
         )}
-
-        <Sized>
-          {mode === Mode.FOCUSED && <Caret key={input} />}
-          &nbsp;
-        </Sized>
 
         <Value onChange={onInput} autoFocus value={input} disabled={disabled} />
       </Field>

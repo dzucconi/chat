@@ -96,7 +96,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
           z-index: 1;
           right: -56px;
           width: 26px;
-          background: ${COLORS.bg};
+          background-color: ${COLORS.bg};
           border-bottom-left-radius: 10px;
           transform: translate(-30px, -2px);
         }
@@ -123,7 +123,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
           z-index: 3;
           left: 4px;
           width: 26px;
-          background: ${COLORS.bg};
+          background-color: ${COLORS.bg};
           border-bottom-right-radius: 10px;
           transform: translate(-30px, -2px);
         }
