@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/howler": "^2.1.1",
+    "@types/howler": "2.1.1",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.8",
     "@types/react": "16.9.3",
     "@types/react-dom": "16.9.1",
-    "audiate": "^1.0.1",
-    "howler": "^2.1.2",
-    "humanization": "^6.3.0",
-    "queryparams": "^0.1.0",
-    "react": "^16.10.0",
-    "react-dom": "^16.10.0",
+    "audiate": "1.0.1",
+    "howler": "2.1.2",
+    "humanization": "6.3.0",
+    "queryparams": "0.1.0",
+    "react": "16.10.0",
+    "react-dom": "16.10.0",
     "react-scripts": "3.1.2",
-    "styled-components": "^4.4.0",
+    "styled-components": "4.4.0",
     "typescript": "3.6.3"
   },
   "scripts": {
@@ -40,6 +40,6 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^4.1.19"
+    "@types/styled-components": "4.1.19"
   }
 }
