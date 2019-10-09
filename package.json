@@ -12,8 +12,8 @@
     "howler": "2.1.2",
     "humanization": "6.3.0",
     "queryparams": "0.1.0",
-    "react": "16.10.0",
-    "react-dom": "16.10.0",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
     "react-scripts": "3.2.0",
     "styled-components": "4.4.0",
     "typescript": "3.6.3"
