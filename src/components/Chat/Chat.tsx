@@ -21,7 +21,6 @@ export const Container = styled.div`
   height: 100%;
   max-width: 35em;
   margin: 0 auto;
-  padding: 0 1em 1em 1em;
   background-color: ${SKIN.bg};
 `;
 

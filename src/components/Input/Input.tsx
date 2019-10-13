@@ -7,7 +7,7 @@ import { respectSpaces } from "../../lib/respectSpaces";
 import { CARET_WIDTH, Caret } from "../Caret";
 
 const Form = styled.form`
-  padding: 0 0.5em;
+  padding: 0 1em 1em 1em;
 `;
 
 const Field = styled.div`

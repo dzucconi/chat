@@ -58,11 +58,11 @@ const Container = styled.div<Pick<TMessage, "author">>`
 const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
   ${bubbleMixin}
   position: relative;
-  max-width: 255px;
+  max-width: 85%;
   color: ${SKIN.bg};
   position: relative;
   display: inline-block;
-  margin: 5px 0;
+  margin: 0.25em 0;
 
   &:before,
   &:after {

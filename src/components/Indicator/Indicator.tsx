@@ -17,15 +17,19 @@ const fade = keyframes`
 export const Container = styled.div`
   ${bubbleMixin}
   display: inline-block;
-  background-color: ${SKIN.themBg};
+  margin: 0.25em 0;
+  padding-left: 0.66em;
+  padding-right: 0.66em;
   user-select: none;
-  margin: 0.3em 0;
+  background-color: ${SKIN.themBg};
 
   & > span {
-    font-size: 0.75rem;
+    position: relative;
+    top: -1px;
+    font-size: 0.7rem;
+    letter-spacing: -0.2em;
     opacity: 0.2;
     color: ${SKIN.themFg};
-    letter-spacing: -0.125em;
   }
 
   & > span:nth-of-type(1) {
@@ -38,7 +42,7 @@ export const Container = styled.div`
 
   & > span:nth-of-type(3) {
     animation: 1s ${fade} infinite 0.9999s;
-    padding-right: 0.125em;
+    padding-right: 0.2em;
   }
 `;
 
