@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import styled from "styled-components";
 
-import { COLORS } from "../../styles";
+import { SKIN } from "../../styles";
 import { mixin as bubbleMixin } from "../Bubble";
 import { respectSpaces } from "../../lib/respectSpaces";
 import { CARET_WIDTH, Caret } from "../Caret";
@@ -16,9 +16,9 @@ const Field = styled.div`
   align-items: center;
   position: relative;
   width: 100%;
-  color: ${COLORS.inputFg};
-  border: 1px solid ${COLORS.inputBorder};
-  background-color: ${COLORS.inputBg};
+  color: ${SKIN.inputFg};
+  border: 1px solid ${SKIN.inputBorder};
+  background-color: ${SKIN.inputBg};
 `;
 
 const Value = styled.input`
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 `;
 
 const Placeholder = styled.div`
-  color: ${COLORS.placeholderFG};
+  color: ${SKIN.placeholderFG};
   position: absolute;
   margin-left: ${CARET_WIDTH * 2}px;
 `;

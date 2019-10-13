@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import { mixin as bubbleMixin } from "../Bubble";
-import { COLORS } from "../../styles";
+import { SKIN } from "../../styles";
 
 interface Props {
   forwardedRef?: React.Ref<HTMLDivElement>;
@@ -17,14 +17,14 @@ const fade = keyframes`
 export const Container = styled.div`
   ${bubbleMixin}
   display: inline-block;
-  background-color: ${COLORS.themBg};
+  background-color: ${SKIN.themBg};
   user-select: none;
   margin: 0.3em 0;
 
   & > span {
     font-size: 0.75rem;
     opacity: 0.2;
-    color: ${COLORS.themFg};
+    color: ${SKIN.themFg};
     letter-spacing: -0.125em;
   }
 

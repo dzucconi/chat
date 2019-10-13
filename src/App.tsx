@@ -1,12 +1,13 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
+import { Head } from "./components/Head";
 import { Chat } from "./components/Chat";
-import { COLORS } from "./styles";
+import { SKIN } from "./styles";
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background-color: ${COLORS.bg};
+    background-color: ${SKIN.bg};
   }
 `;
 
@@ -27,6 +28,7 @@ interface Props {
 export const App: React.FC<Props> = ({ amount, autoPlay }) => {
   return (
     <>
+      <Head skin={SKIN} />
       <GlobalStyles />
 
       <Container>

@@ -1,10 +1,10 @@
 import parameters from "queryparams";
 
-const { skin }: { skin: "default" } = parameters({
+export const { skin }: { skin: string } = parameters({
   skin: "default"
 });
 
-interface Skin {
+export interface Skin {
   bg: string;
   inputFg: string;
   inputBg: string;
@@ -15,6 +15,8 @@ interface Skin {
   meBg: string;
   meFg: string;
   cursorFg: string;
+  themeColor: string;
+  statusBarStyle: "default" | "black-translucent";
 }
 
 const SKINS: { [name: string]: Skin } = {
@@ -28,7 +30,9 @@ const SKINS: { [name: string]: Skin } = {
     themFg: "#000000",
     meBg: "#0B82FE",
     meFg: "#fff",
-    cursorFg: "#426BF2"
+    cursorFg: "#426BF2",
+    themeColor: "#ffffff",
+    statusBarStyle: "default"
   },
   dark: {
     bg: "#000",
@@ -40,7 +44,9 @@ const SKINS: { [name: string]: Skin } = {
     themFg: "#fff",
     meBg: "#1287FF",
     meFg: "#fff",
-    cursorFg: "#426BF2"
+    cursorFg: "#426BF2",
+    themeColor: "#000000",
+    statusBarStyle: "black-translucent"
   },
   plain: {
     bg: "#fff",
@@ -52,8 +58,10 @@ const SKINS: { [name: string]: Skin } = {
     themFg: "blue",
     meBg: "#fff",
     meFg: "red",
-    cursorFg: "#0064d3"
+    cursorFg: "#0064d3",
+    themeColor: "#ffffff",
+    statusBarStyle: "default"
   }
 };
 
-export const COLORS = SKINS[skin];
+export const SKIN = SKINS[skin];

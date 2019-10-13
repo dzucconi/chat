@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
-import { COLORS } from "../../styles";
+import { SKIN } from "../../styles";
 import { mixin as bubbleMixin } from "../Bubble";
 import { respectSpaces } from "../../lib/respectSpaces";
 
@@ -59,7 +59,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
   ${bubbleMixin}
   position: relative;
   max-width: 255px;
-  color: ${COLORS.bg};
+  color: ${SKIN.bg};
   position: relative;
   display: inline-block;
   margin: 5px 0;
@@ -76,8 +76,8 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
     ({
       ME: css`
         align-self: flex-end;
-        color: ${COLORS.meFg};
-        background-color: ${COLORS.meBg};
+        color: ${SKIN.meFg};
+        background-color: ${SKIN.meBg};
 
         &:last-of-type {
           animation: ${ANIMATIONS.ME} 0.25s;
@@ -87,7 +87,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
         &:before {
           z-index: 0;
           right: -7px;
-          border-right: 20px solid ${COLORS.meBg};
+          border-right: 20px solid ${SKIN.meBg};
           border-bottom-left-radius: 16px 14px;
           transform: translate(0, -2px);
         }
@@ -96,15 +96,15 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
           z-index: 1;
           right: -56px;
           width: 26px;
-          background-color: ${COLORS.bg};
+          background-color: ${SKIN.bg};
           border-bottom-left-radius: 10px;
           transform: translate(-30px, -2px);
         }
       `,
       THEM: css`
         align-self: flex-start;
-        color: ${COLORS.themFg};
-        background-color: ${COLORS.themBg};
+        color: ${SKIN.themFg};
+        background-color: ${SKIN.themBg};
 
         &:last-of-type {
           animation: ${ANIMATIONS.THEM} 0.25s;
@@ -114,7 +114,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
         &:before {
           z-index: 2;
           left: -7px;
-          border-left: 20px solid ${COLORS.themBg};
+          border-left: 20px solid ${SKIN.themBg};
           border-bottom-right-radius: 16px 14px;
           transform: translate(0, -2px);
         }
@@ -123,7 +123,7 @@ const Bubble = styled.div<Pick<TMessage, "author"> & { lines?: number }>`
           z-index: 3;
           left: 4px;
           width: 26px;
-          background-color: ${COLORS.bg};
+          background-color: ${SKIN.bg};
           border-bottom-right-radius: 10px;
           transform: translate(-30px, -2px);
         }

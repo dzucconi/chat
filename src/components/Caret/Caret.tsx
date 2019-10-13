@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import { COLORS } from "../../styles";
+import { SKIN } from "../../styles";
 
 export const CARET_WIDTH = 2;
 
@@ -25,7 +25,7 @@ const Blinking = styled.div`
   bottom: 0;
   width: ${CARET_WIDTH}px;
   height: 100%;
-  background-color: ${COLORS.cursorFg};
+  background-color: ${SKIN.cursorFg};
   animation: ${fade} 1s infinite cubic-bezier(1, 0, 0, 1);
 `;
 

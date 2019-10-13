@@ -3,7 +3,7 @@ import { simulateTyping } from "humanization";
 import styled from "styled-components";
 
 import { audio } from "../../audio";
-import { COLORS } from "../../styles";
+import { SKIN } from "../../styles";
 import { wait } from "../../lib/wait";
 import { estimate } from "../../lib/estimate";
 import { speak } from "../../lib/conversation";
@@ -22,7 +22,7 @@ export const Container = styled.div`
   max-width: 35em;
   margin: 0 auto;
   padding: 0 1em 1em 1em;
-  background-color: ${COLORS.bg};
+  background-color: ${SKIN.bg};
 `;
 
 const COGNITION_PAUSE = 250;
