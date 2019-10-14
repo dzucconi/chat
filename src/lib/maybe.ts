@@ -1,2 +1,2 @@
-export const maybe = (value: string, chance: number = 0.5) =>
-  Math.random() > chance ? value : "";
+export const maybe = (value: string, probability: number = 0.5) =>
+  Math.random() > probability ? value : "";

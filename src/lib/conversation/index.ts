@@ -1,12 +1,21 @@
-import { humanize, generateStrokeTiming } from "humanization";
+import { humanize, generateStrokeTiming, mistakes } from "humanization";
 
-import { sample } from "../sample";
+import { choose } from "./choose";
 import { MEMORY } from "./models/apologizer";
 
+export const MISTAKES = [
+  { apply: mistakes.miss, probability: 0.033 },
+  { apply: mistakes.omit, probability: 0.033 },
+  { apply: mistakes.duplicate, probability: 0.001 },
+  { apply: mistakes.toggleCase, probability: 0.033 },
+  { apply: mistakes.capitalize, probability: 0.033 },
+  { apply: mistakes.repeat, probability: 1 },
+  { apply: mistakes.substitute, probability: 0.5 }
+];
+
 export const speak = () => {
-  // TODO: Evaluate per-phrase probabilities
-  const input = sample(MEMORY).template();
-  const humanized = humanize(input);
+  const input = choose(MEMORY).template();
+  const humanized = humanize(input, { mistakes: MISTAKES });
   const output = humanized.toString();
   const characters = output.split("");
 
