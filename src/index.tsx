@@ -6,17 +6,22 @@ import { block } from "audiate";
 import "./index.css";
 
 import { App } from "./App";
-
+import { Model } from "./lib/conversation";
 import * as serviceWorker from "./serviceWorker";
 
-const { autoPlay, amount }: { autoPlay: boolean; amount: number } = parameters({
+const {
+  autoPlay,
+  amount,
+  model
+}: { autoPlay: boolean; amount: number; model: Model } = parameters({
   autoPlay: true,
-  amount: 1
+  amount: 1,
+  model: "apologizer"
 });
 
 const handleEnable = () =>
   ReactDOM.render(
-    <App autoPlay={autoPlay} amount={amount} />,
+    <App autoPlay={autoPlay} amount={amount} model={model} />,
     document.getElementById("root")
   );
 

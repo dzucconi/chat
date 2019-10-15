@@ -1,7 +1,9 @@
 import { humanize, generateStrokeTiming, mistakes } from "humanization";
 
 import { choose } from "./choose";
-import { MEMORY } from "./models/apologizer";
+import * as models from "./models";
+
+export type Model = keyof typeof models;
 
 export const MISTAKES = [
   { apply: mistakes.miss, probability: 0.033 },
@@ -13,8 +15,8 @@ export const MISTAKES = [
   { apply: mistakes.substitute, probability: 0.5 }
 ];
 
-export const speak = () => {
-  const input = choose(MEMORY).template();
+export const speak = ({ model }: { model: Model }) => {
+  const input = choose(models[model]).template();
   const humanized = humanize(input, { mistakes: MISTAKES });
   const output = humanized.toString();
   const characters = output.split("");
@@ -29,3 +31,5 @@ export const speak = () => {
 
   return { input, output, humanized, timing };
 };
+
+export { models };

@@ -6,7 +6,7 @@ import { audio } from "../../audio";
 import { SKIN } from "../../styles";
 import { wait } from "../../lib/wait";
 import { estimate } from "../../lib/estimate";
-import { speak } from "../../lib/conversation";
+import { speak, Model } from "../../lib/conversation";
 import { Input } from "../Input";
 import { Messages } from "../Messages";
 import { TMessage as Message } from "../Message";
@@ -99,9 +99,10 @@ const reducer = (state: State, action: Action): State => {
 
 interface Props {
   autoPlay: boolean;
+  model: Model;
 }
 
-export const Chat: React.FC<Props> = ({ autoPlay }) => {
+export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
   const [state, dispatch] = useReducer(reducer, {
     mode: Mode.RESTING,
     input: "",
@@ -125,7 +126,7 @@ export const Chat: React.FC<Props> = ({ autoPlay }) => {
   }, []);
 
   const handleThem = useCallback(async () => {
-    const { output, timing } = speak();
+    const { output, timing } = speak({ model });
     const last = state.messages[state.messages.length - 1];
 
     // Read last message
@@ -138,10 +139,10 @@ export const Chat: React.FC<Props> = ({ autoPlay }) => {
     // Respond
     dispatch({ type: "RESPOND", payload: { body: output } });
     audio.received.play();
-  }, [state.messages]);
+  }, [model, state.messages]);
 
   const handleMe = useCallback(async () => {
-    const { humanized } = speak();
+    const { humanized } = speak({ model });
     const last = state.messages[state.messages.length - 1];
 
     // Read last message
@@ -165,7 +166,7 @@ export const Chat: React.FC<Props> = ({ autoPlay }) => {
     await wait(500);
     dispatch({ type: "SEND" });
     audio.sent.play();
-  }, [state.messages]);
+  }, [model, state.messages]);
 
   // Deal with each message in turn
   useEffect(() => {

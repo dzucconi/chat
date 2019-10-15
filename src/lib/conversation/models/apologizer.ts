@@ -1,9 +1,8 @@
 import { sample } from "../../sample";
 import { maybe } from "../../maybe";
+import { Memory } from "../types";
 
-import { Phrase } from "../types";
-
-export const MEMORY: Phrase[] = [
+export const MEMORY: Memory = [
   { template: () => "Excuse me", chance: 1.0 },
   { template: () => "Ever so sorry.", chance: 1.0 },
   {
@@ -92,5 +91,6 @@ export const MEMORY: Phrase[] = [
   { template: () => "My bad", chance: 1.0 },
   { template: () => "Excuse me for interrupting.", chance: 1.0 },
   { template: () => "I was wrong. Can you forgive me?", chance: 1.0 },
-  { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 }
+  { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 },
+  { template: () => "I crave pardon", chance: 1.0 }
 ];

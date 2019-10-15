@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { Head } from "./components/Head";
 import { Chat } from "./components/Chat";
 import { SKIN } from "./styles";
+import { Model } from "./lib/conversation";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -23,9 +24,10 @@ const Container = styled.div`
 interface Props {
   amount: number;
   autoPlay: boolean;
+  model: Model;
 }
 
-export const App: React.FC<Props> = ({ amount, autoPlay }) => {
+export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
   return (
     <>
       <Head skin={SKIN} />
@@ -33,7 +35,7 @@ export const App: React.FC<Props> = ({ amount, autoPlay }) => {
 
       <Container>
         {new Array(amount).fill(undefined).map((_, index) => (
-          <Chat key={index} autoPlay={autoPlay} />
+          <Chat key={index} autoPlay={autoPlay} model={model} />
         ))}
       </Container>
     </>
