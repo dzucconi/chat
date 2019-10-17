@@ -90,7 +90,10 @@ export const MEMORY: Memory = [
   { template: () => "I beg your pardon", chance: 1.0 },
   { template: () => "My bad", chance: 1.0 },
   { template: () => "Excuse me for interrupting.", chance: 1.0 },
-  { template: () => "I was wrong. Can you forgive me?", chance: 1.0 },
+  {
+    template: () => `${maybe("I was wrong.")} Can you forgive me?`,
+    chance: 1.0
+  },
   { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 },
   { template: () => "I crave pardon", chance: 1.0 }
 ];
