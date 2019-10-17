@@ -14,7 +14,7 @@ const {
   model
 }: { autoPlay: boolean; amount: number; model: Model } = parameters({
   autoPlay: true,
-  amount: 1,
+  amount: Math.floor(window.innerWidth / 320) || 1,
   model: "apologizer"
 });
 
