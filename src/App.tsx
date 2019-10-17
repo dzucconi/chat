@@ -1,14 +1,16 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
-import { Head } from "./components/Head";
-import { Chat } from "./components/Chat";
 import { SKIN } from "./styles";
 import { Model } from "./lib/conversation";
+import { Head } from "./components/Head";
+import { Chat } from "./components/Chat";
+import { EnableAudio } from "./components/EnableAudio";
 
 const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${SKIN.bg};
+    color: ${SKIN.fg};
   }
 `;
 
@@ -31,13 +33,16 @@ export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
   return (
     <>
       <Head skin={SKIN} />
+
       <GlobalStyles />
 
-      <Container>
-        {new Array(amount).fill(undefined).map((_, index) => (
-          <Chat key={index} autoPlay={autoPlay} model={model} />
-        ))}
-      </Container>
+      <EnableAudio>
+        <Container>
+          {new Array(amount).fill(undefined).map((_, index) => (
+            <Chat key={index} autoPlay={autoPlay} model={model} />
+          ))}
+        </Container>
+      </EnableAudio>
     </>
   );
 };

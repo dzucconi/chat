@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import parameters from "queryparams";
-import { block } from "audiate";
 
 import "./index.css";
 
@@ -19,16 +18,9 @@ const {
   model: "apologizer"
 });
 
-const handleEnable = () =>
-  ReactDOM.render(
-    <App autoPlay={autoPlay} amount={amount} model={model} />,
-    document.getElementById("root")
-  );
-
-block({
-  message: "Enable audio",
-  clickToEnable: true,
-  onEnable: handleEnable
-});
+ReactDOM.render(
+  <App autoPlay={autoPlay} amount={amount} model={model} />,
+  document.getElementById("root")
+);
 
 serviceWorker.unregister();

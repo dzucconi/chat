@@ -6,6 +6,7 @@ export const { skin }: { skin: string } = parameters({
 
 export interface Skin {
   bg: string;
+  fg: string;
   inputFg: string;
   inputBg: string;
   inputBorder: string;
@@ -22,6 +23,7 @@ export interface Skin {
 const SKINS: { [name: string]: Skin } = {
   default: {
     bg: "#fff",
+    fg: "#000",
     inputFg: "#000000",
     inputBg: "#fff",
     inputBorder: "#CECED1",
@@ -36,6 +38,7 @@ const SKINS: { [name: string]: Skin } = {
   },
   dark: {
     bg: "#000",
+    fg: "#fff",
     inputFg: "#fff",
     inputBg: "#141414",
     inputBorder: "#545457",
@@ -50,6 +53,7 @@ const SKINS: { [name: string]: Skin } = {
   },
   plain: {
     bg: "#fff",
+    fg: "#000",
     inputFg: "#000",
     inputBg: "#fff",
     inputBorder: "#fff",
