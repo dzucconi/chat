@@ -19,6 +19,7 @@ const Field = styled.div`
   color: ${SKIN.inputFg};
   border: 1px solid ${SKIN.inputBorder};
   background-color: ${SKIN.inputBg};
+  overflow: hidden;
 `;
 
 const Value = styled.input`
