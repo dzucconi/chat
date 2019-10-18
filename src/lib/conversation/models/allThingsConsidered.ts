@@ -5,7 +5,7 @@ export const MISTAKES = [];
 export const MY_MEMORY: Memory = [
   {
     template: async () => {
-      const response = await fetch("http://dictionary.pink/verse?n=1");
+      const response = await fetch("https://dictionary.pink/verse?n=1");
       const [verse] = await response.json();
       return `${verse}?`;
     },
@@ -16,7 +16,7 @@ export const MY_MEMORY: Memory = [
 export const THEIR_MEMORY: Memory = [
   {
     template: async () => {
-      const response = await fetch("http://dictionary.red/verse?n=1");
+      const response = await fetch("https://dictionary.red/verse?n=1");
       const [verse] = await response.json();
       return `${verse}.`;
     },
