@@ -1,23 +1,13 @@
-import { humanize, generateStrokeTiming, mistakes } from "humanization";
+import { humanize, generateStrokeTiming } from "humanization";
 
 import { choose } from "./choose";
 import * as models from "./models";
 
 export type Model = keyof typeof models;
 
-export const MISTAKES = [
-  { apply: mistakes.miss, probability: 0.033 },
-  { apply: mistakes.omit, probability: 0.033 },
-  { apply: mistakes.duplicate, probability: 0.001 },
-  { apply: mistakes.toggleCase, probability: 0.033 },
-  { apply: mistakes.capitalize, probability: 0.033 },
-  { apply: mistakes.repeat, probability: 1 },
-  { apply: mistakes.substitute, probability: 0.5 }
-];
-
 export const speak = ({ model }: { model: Model }) => {
-  const input = choose(models[model]).template();
-  const humanized = humanize(input, { mistakes: MISTAKES });
+  const input = choose(models[model].MEMORY).template();
+  const humanized = humanize(input, { mistakes: models[model].MISTAKES });
   const output = humanized.toString();
   const characters = output.split("");
 
