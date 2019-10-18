@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { useAudiate } from "audiate";
 
 import { isTouchDevice } from "../../lib/isTouchDevice";
 import { AudioIndicator } from "../AudioIndicator";
+import { SKIN } from "../../styles";
 
 const isTouch = isTouchDevice();
 
-const Enabler = styled.div`
+const Enabler = styled.button`
+  appearance: none;
   display: flex;
   position: fixed;
   top: 0;
@@ -18,6 +20,9 @@ const Enabler = styled.div`
   justify-content: center;
   cursor: pointer;
   font-size: 1.25rem;
+  color: ${SKIN.fg};
+  background-color: ${SKIN.bg};
+  border: none;
 `;
 
 interface Props {
@@ -26,8 +31,10 @@ interface Props {
 
 export const EnableAudio: React.FC<Props> = ({ children }) => {
   const [audioContextState] = useAudiate();
+  const [isEnabled, setEnabled] = useState(false);
+  const handleClick = useCallback(() => setEnabled(true), []);
 
-  if (audioContextState === "running") {
+  if (audioContextState === "running" || isEnabled) {
     return (
       <>
         <AudioIndicator audioContextState={audioContextState} />
@@ -36,5 +43,9 @@ export const EnableAudio: React.FC<Props> = ({ children }) => {
     );
   }
 
-  return <Enabler>{isTouch ? "Tap" : "Click"} to enable audio</Enabler>;
+  return (
+    <Enabler onClick={handleClick}>
+      {isTouch ? "Tap" : "Click"} to enable audio
+    </Enabler>
+  );
 };
