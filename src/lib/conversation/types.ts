@@ -1,5 +1,5 @@
 export type Phrase = {
-  template(): string;
+  template(): string | Promise<string>;
   chance: number;
 };
 

@@ -126,7 +126,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
   }, []);
 
   const handleThem = useCallback(async () => {
-    const { output, timing } = speak({ model });
+    const { output, timing } = await speak({ model, author: "THEM" });
     const last = state.messages[state.messages.length - 1];
 
     // Read last message
@@ -142,7 +142,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
   }, [model, state.messages]);
 
   const handleMe = useCallback(async () => {
-    const { humanized } = speak({ model });
+    const { humanized } = await speak({ model, author: "ME" });
     const last = state.messages[state.messages.length - 1];
 
     // Read last message

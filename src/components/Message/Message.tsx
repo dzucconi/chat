@@ -4,10 +4,11 @@ import styled, { css, keyframes } from "styled-components";
 import { SKIN } from "../../styles";
 import { mixin as bubbleMixin } from "../Bubble";
 import { respectSpaces } from "../../lib/respectSpaces";
+import { Author } from "../../types";
 
 export interface TMessage {
   body: string;
-  author: "ME" | "THEM";
+  author: Author;
   timestamp: number;
 }
 

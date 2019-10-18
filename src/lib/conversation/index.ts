@@ -2,11 +2,17 @@ import { humanize, generateStrokeTiming } from "humanization";
 
 import { choose } from "./choose";
 import * as models from "./models";
+import { Author } from "../../types";
 
 export type Model = keyof typeof models;
 
-export const speak = ({ model }: { model: Model }) => {
-  const input = choose(models[model].MEMORY).template();
+interface Props {
+  model: Model;
+  author: Author;
+}
+
+export const speak = async ({ model, author }: Props) => {
+  const input = await choose(models[model][author]).template();
   const humanized = humanize(input, { mistakes: models[model].MISTAKES });
   const output = humanized.toString();
   const characters = output.split("");

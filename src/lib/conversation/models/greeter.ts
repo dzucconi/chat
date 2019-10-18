@@ -44,5 +44,6 @@ export const MEMORY: Memory = [
 
 export default {
   MISTAKES,
-  MEMORY
+  ME: MEMORY,
+  THEM: MEMORY
 };
