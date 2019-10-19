@@ -5,6 +5,7 @@ import parameters from "queryparams";
 import "./index.css";
 
 import { App } from "./App";
+import { Available } from "./components/Available";
 import { Model } from "./lib/conversation";
 import * as serviceWorker from "./serviceWorker";
 
@@ -13,17 +14,28 @@ const DEFAULT_VIEWPORT_WIDTH = 320;
 const {
   autoPlay,
   amount,
-  model
-}: { autoPlay: boolean; amount: number; model: Model } = parameters({
+  model,
+  index
+}: {
+  autoPlay: boolean;
+  amount: number;
+  model: Model;
+  index: boolean;
+} = parameters({
   autoPlay: true,
   amount:
     Math.floor(document.documentElement.clientWidth / DEFAULT_VIEWPORT_WIDTH) ||
     1,
-  model: "apologizer"
+  model: "apologizer",
+  index: false
 });
 
 ReactDOM.render(
-  <App autoPlay={autoPlay} amount={amount} model={model} />,
+  index ? (
+    <Available />
+  ) : (
+    <App autoPlay={autoPlay} amount={amount} model={model} />
+  ),
   document.getElementById("root")
 );
 
