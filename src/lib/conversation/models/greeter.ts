@@ -43,6 +43,7 @@ export const MEMORY: Memory = [
 ];
 
 export default {
+  NAME: "Credit",
   MISTAKES,
   ME: MEMORY,
   THEM: MEMORY

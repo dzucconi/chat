@@ -111,6 +111,7 @@ export const MEMORY: Memory = [
 ];
 
 export default {
+  NAME: "Consumption",
   MISTAKES,
   ME: MEMORY,
   THEM: MEMORY

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 import { SKIN } from "./styles";
-import { Model } from "./lib/conversation";
+import { Model, models } from "./lib/conversation";
 import { Head } from "./components/Head";
 import { Chat } from "./components/Chat";
 import { EnableAudio } from "./components/EnableAudio";
@@ -30,6 +30,10 @@ interface Props {
 }
 
 export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
+  useEffect(() => {
+    document.title = models[model].NAME;
+  }, [model]);
+
   return (
     <>
       <Head skin={SKIN} />

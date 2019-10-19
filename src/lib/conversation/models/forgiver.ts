@@ -37,6 +37,7 @@ export const MEMORY: Memory = [
 ];
 
 export default {
+  NAME: "Production",
   MISTAKES,
   ME: MEMORY,
   THEM: MEMORY

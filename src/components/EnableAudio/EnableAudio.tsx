@@ -16,6 +16,7 @@ const Enabler = styled.button`
   right: 0;
   bottom: 0;
   left: 0;
+  text-align: center;
   align-items: center;
   justify-content: center;
   width: 100%;

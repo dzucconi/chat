@@ -24,6 +24,7 @@ export const MEMORY: Memory = [
 ];
 
 export default {
+  NAME: "Debt",
   MISTAKES,
   ME: MEMORY,
   THEM: MEMORY

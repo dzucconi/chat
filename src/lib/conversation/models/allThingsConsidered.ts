@@ -25,6 +25,7 @@ export const THEIR_MEMORY: Memory = [
 ];
 
 export default {
+  NAME: "All Things Considered",
   MISTAKES,
   ME: MY_MEMORY,
   THEM: THEIR_MEMORY
