@@ -103,11 +103,20 @@ export const MEMORY: Memory = [
   { template: () => "My bad", chance: 1.0 },
   { template: () => "Excuse me for interrupting.", chance: 1.0 },
   {
-    template: () => `${maybe("I was wrong.")} Can you forgive me?`,
+    template: () =>
+      `${maybe("I was wrong.")} Can you ${maybe("ever")} forgive me?`,
     chance: 1.0
   },
   { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 },
-  { template: () => "I crave pardon", chance: 1.0 }
+  { template: () => "I crave pardon", chance: 1.0 },
+  { template: () => `I know I’ve ${maybe("truly")} hurt you.`, chance: 1.0 },
+  {
+    template: () =>
+      `I know you ${sample(["aren’t", "might not be"])} ready to forgive me.`,
+    chance: 1.0
+  },
+  { template: () => `${maybe(sample(["I am", "I’m"]))} Sorry.`, chance: 1.0 },
+  { template: () => `I ${maybe("just")} don’t know.`, chance: 1.0 }
 ];
 
 export default {
