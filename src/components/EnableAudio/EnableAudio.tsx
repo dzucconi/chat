@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import { useAudiate } from "audiate";
+import { useAudiate } from "use-audiate";
 
 import { isTouchDevice } from "../../lib/isTouchDevice";
 import { AudioIndicator } from "../AudioIndicator";
