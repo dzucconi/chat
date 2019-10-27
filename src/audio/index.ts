@@ -11,9 +11,21 @@ import sent from "./sent.mp3";
 import received from "./received.mp3";
 
 export const audio = {
-  type: new Howl({ src: [type], autoplay: false, preload: true }),
-  space: new Howl({ src: [space], autoplay: false, preload: true }),
-  backspace: new Howl({ src: [backspace], autoplay: false, preload: true }),
+  // Typing
+  type: new Howl({ src: [type], autoplay: false, preload: true, volume: 0.33 }),
+  space: new Howl({
+    src: [space],
+    autoplay: false,
+    preload: true,
+    volume: 0.33
+  }),
+  backspace: new Howl({
+    src: [backspace],
+    autoplay: false,
+    preload: true,
+    volume: 0.33
+  }),
+  // Alerts
   sent: new Howl({ src: [sent], autoplay: false, preload: true }),
   received: new Howl({ src: [received], autoplay: false, preload: true })
 };
