@@ -1,18 +1,7 @@
-import { mistakes } from "humanization";
-
 import { sample } from "../../sample";
 import { maybe } from "../../maybe";
 import { Memory } from "../types";
-
-export const MISTAKES = [
-  { apply: mistakes.miss, probability: 0.033 },
-  { apply: mistakes.omit, probability: 0.033 },
-  { apply: mistakes.duplicate, probability: 0.001 },
-  { apply: mistakes.toggleCase, probability: 0.033 },
-  { apply: mistakes.capitalize, probability: 0.033 },
-  { apply: mistakes.repeat, probability: 1 },
-  { apply: mistakes.substitute, probability: 0.5 }
-];
+import { MISTAKES } from "../../../config";
 
 export const MEMORY: Memory = [
   { template: () => "Excuse me", chance: 1.0 },
@@ -37,7 +26,7 @@ export const MEMORY: Memory = [
     template: () => `I wanted to tell you I’m ${maybe("so")} sorry.`,
     chance: 1.0
   },
-  { template: () => `I was wrong${maybe(" on that")}.`, chance: 1.0 },
+  { template: () => `I was wrong${maybe(" about that")}.`, chance: 1.0 },
   {
     template: () => `I’d like to apologize${maybe(" for everything")}.`,
     chance: 1.0
@@ -116,7 +105,19 @@ export const MEMORY: Memory = [
     chance: 1.0
   },
   { template: () => `${maybe(sample(["I am", "I’m"]))} Sorry.`, chance: 1.0 },
-  { template: () => `I ${maybe("just")} don’t know.`, chance: 1.0 }
+  { template: () => `I ${maybe("just")} don’t know.`, chance: 1.0 },
+  {
+    template: () =>
+      `I didn’t mean to ${sample(["cause you", "have caused"])} pain.`,
+    chance: 1.0
+  },
+  { template: () => "It won’t happen again.", chance: 1.0 },
+  { template: () => "I just forgot.", chance: 1.0 },
+  {
+    template: () => `I’ll try harder ${sample([".", " in the future."])}`,
+    chance: 1.0
+  },
+  { template: () => `I ${maybe("just")} wasn’t thinking.`, chance: 1.0 }
 ];
 
 export default {

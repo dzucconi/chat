@@ -19,6 +19,7 @@ const Container = styled.div<Props>`
   top: 0;
   left: 0;
   padding: 0.75em 1em;
+  z-index: 1;
 
   ${({ audioContextState }) =>
     ({

@@ -1,5 +1,5 @@
 import React, { useReducer, useCallback, useEffect, useRef } from "react";
-import { simulateTyping } from "humanization";
+import { simulateTyping, simulateStrokeTiming } from "humanization";
 import styled from "styled-components";
 
 import { audio } from "../../audio";
@@ -11,6 +11,7 @@ import { Input } from "../Input";
 import { Messages } from "../Messages";
 import { TMessage as Message } from "../Message";
 import { Indicator } from "../Indicator";
+import { pauseMin, pauseMax, cognitionPause } from "../../config";
 
 export const Container = styled.div`
   position: relative;
@@ -24,7 +25,6 @@ export const Container = styled.div`
   background-color: ${SKIN.bg};
 `;
 
-const COGNITION_PAUSE = 250;
 const MAX_MESSAGES_LENGTH = 30;
 
 enum Mode {
@@ -130,7 +130,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
     const last = state.messages[state.messages.length - 1];
 
     // Read last message
-    last && (await wait(estimate(last.body) + COGNITION_PAUSE));
+    last && (await wait(estimate(last.body) + cognitionPause));
 
     // Type new response
     dispatch({ type: "RESPONDING" });
@@ -146,18 +146,24 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
     const last = state.messages[state.messages.length - 1];
 
     // Read last message
-    await wait(estimate(last.body) + COGNITION_PAUSE);
+    await wait(estimate(last.body) + cognitionPause);
 
     // Type the message
     await simulateTyping({
       stream: humanized.stream,
-      onStroke: ({ stroke }) => {
+      onStroke: ({ stroke, previousStroke }) => {
         const sound = stroke.character === " " ? "space" : "type";
         audio[sound].play();
 
         dispatch({
           type: "KEYPRESS",
           payload: { character: stroke.character }
+        });
+
+        return simulateStrokeTiming({
+          prevCharacter: previousStroke && previousStroke.character,
+          pauseMin,
+          pauseMax
         });
       }
     });

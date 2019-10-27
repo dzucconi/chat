@@ -1,6 +1,7 @@
 import { mistakes } from "humanization";
-
 import { Memory } from "../types";
+
+import { MISTAKES as _MISTAKES, entropy } from "../../../config";
 
 const repeat: typeof mistakes.repeat = input =>
   mistakes.repeat(input, {
@@ -15,16 +16,11 @@ const repeat: typeof mistakes.repeat = input =>
   });
 
 export const MISTAKES = [
-  { apply: mistakes.miss, probability: 0.033 },
-  { apply: mistakes.omit, probability: 0.033 },
-  { apply: mistakes.duplicate, probability: 0.001 },
-  { apply: mistakes.toggleCase, probability: 0.033 },
-  { apply: mistakes.capitalize, probability: 0.033 },
+  ..._MISTAKES,
   {
     apply: repeat,
-    probability: 0.5
-  },
-  { apply: mistakes.substitute, probability: 0.5 }
+    probability: 0.5 * entropy
+  }
 ];
 
 export const MEMORY: Memory = [

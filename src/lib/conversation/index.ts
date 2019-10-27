@@ -3,6 +3,7 @@ import { humanize, generateStrokeTiming } from "humanization";
 import { choose } from "./choose";
 import * as models from "./models";
 import { Author } from "../../types";
+import { pauseMin, pauseMax } from "../../config";
 
 export type Model = keyof typeof models;
 
@@ -20,6 +21,8 @@ export const speak = async ({ model, author }: Props) => {
   const timing = characters
     .map((_char, index) => {
       return generateStrokeTiming({
+        pauseMin,
+        pauseMax,
         prevCharacter: characters[index - 1]
       });
     })
