@@ -40,7 +40,9 @@ export const EnableAudio: React.FC<Props> = ({ children }) => {
   if (audioContextState === "running" || isEnabled) {
     return (
       <>
-        <AudioIndicator audioContextState={audioContextState} />
+        <AudioIndicator
+          audioContextState={isEnabled ? "running" : audioContextState}
+        />
         {children}
       </>
     );
