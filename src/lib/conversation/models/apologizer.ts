@@ -2,6 +2,7 @@ import { sample } from "../../sample";
 import { maybe } from "../../maybe";
 import { Memory } from "../types";
 import { MISTAKES } from "../../../config";
+import { maybeContract } from "../contract";
 
 export const MEMORY: Memory = [
   { template: () => "Excuse me", chance: 1.0 },
@@ -23,21 +24,28 @@ export const MEMORY: Memory = [
   { template: () => "I take full responsibility.", chance: 1.0 },
   { template: () => "I want to apologize.", chance: 1.0 },
   {
-    template: () => `I wanted to tell you I’m ${maybe("so")} sorry.`,
+    template: () =>
+      `I wanted to tell you ${maybeContract("I am")} ${maybe("so")} sorry.`,
     chance: 1.0
   },
   { template: () => `I was wrong${maybe(" about that")}.`, chance: 1.0 },
   {
-    template: () => `I’d like to apologize${maybe(" for everything")}.`,
-    chance: 1.0
-  },
-  {
-    template: () => "I’d like to apologize for how I reacted yesterday.",
+    template: () =>
+      `${maybeContract("I would")} like to apologize${maybe(
+        " for everything"
+      )}.`,
     chance: 1.0
   },
   {
     template: () =>
-      `I’m ${sample([
+      `${maybeContract(
+        "I would"
+      )} like to apologize for how I reacted yesterday.`,
+    chance: 1.0
+  },
+  {
+    template: () =>
+      `${maybeContract("I am")} ${sample([
         "so",
         "very",
         "terribly",
@@ -53,9 +61,9 @@ export const MEMORY: Memory = [
   { template: () => "My mistake.", chance: 1.0 },
   {
     template: () =>
-      `Oh my ${sample(["goodness", "god", "christ"])}! I’m ${maybe(
-        "so"
-      )} sorry.`,
+      `Oh my ${sample(["goodness", "god", "christ"])}! ${maybeContract(
+        "I am"
+      )} ${maybe("so")} sorry.`,
     chance: 1.0
   },
   { template: () => "Oh, my bad.", chance: 1.0 },
@@ -64,7 +72,10 @@ export const MEMORY: Memory = [
     template: () => `Please accept our ${maybe("sincerest")} apologies.`,
     chance: 1.0
   },
-  { template: () => "Please don’t be mad at me.", chance: 1.0 },
+  {
+    template: () => `Please ${maybeContract("do not")} be mad at me.`,
+    chance: 1.0
+  },
   {
     template: () => `Please excuse ${sample(["my ignorance", "me"])}`,
     chance: 1.0
@@ -82,7 +93,7 @@ export const MEMORY: Memory = [
     chance: 1.0
   },
   { template: () => "That was wrong of me.", chance: 1.0 },
-  { template: () => `That’s my fault.`, chance: 1.0 },
+  { template: () => `${maybeContract("That is")} my fault.`, chance: 1.0 },
   {
     template: () =>
       `${sample(["woops", "shit", "fuck"])}! ${maybe("so")} sorry!`,
@@ -98,26 +109,49 @@ export const MEMORY: Memory = [
   },
   { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 },
   { template: () => "I crave pardon", chance: 1.0 },
-  { template: () => `I know I’ve ${maybe("truly")} hurt you.`, chance: 1.0 },
   {
     template: () =>
-      `I know you ${sample(["aren’t", "might not be"])} ready to forgive me.`,
+      `I know ${maybeContract("I have")} ${maybe("truly")} hurt you.`,
     chance: 1.0
   },
-  { template: () => `${maybe(sample(["I am", "I’m"]))} Sorry.`, chance: 1.0 },
-  { template: () => `I ${maybe("just")} don’t know.`, chance: 1.0 },
   {
     template: () =>
-      `I didn’t mean to ${sample(["cause you", "have caused"])} pain.`,
+      `I know you ${sample([
+        maybeContract("are not"),
+        "might not be"
+      ])} ready to forgive me.`,
     chance: 1.0
   },
-  { template: () => "It won’t happen again.", chance: 1.0 },
+  { template: () => `${maybe(maybeContract("I am"))} Sorry.`, chance: 1.0 },
+  {
+    template: () => `I ${maybe("just")} ${maybeContract("do not")} know.`,
+    chance: 1.0
+  },
+  {
+    template: () =>
+      `I ${maybeContract("did not")} mean to ${sample([
+        "cause you",
+        "have caused"
+      ])} pain.`,
+    chance: 1.0
+  },
+  {
+    template: () => `It ${maybeContract("will not")} happen again.`,
+    chance: 1.0
+  },
   { template: () => "I just forgot.", chance: 1.0 },
   {
-    template: () => `I’ll try harder ${sample([".", " in the future."])}`,
+    template: () =>
+      `${maybeContract("I will")} try harder ${sample([
+        ".",
+        " in the future."
+      ])}`,
     chance: 1.0
   },
-  { template: () => `I ${maybe("just")} wasn’t thinking.`, chance: 1.0 }
+  {
+    template: () => `I ${maybe("just")} ${maybeContract("was not")} thinking.`,
+    chance: 1.0
+  }
 ];
 
 export default {

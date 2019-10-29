@@ -1,5 +1,6 @@
 import { sample } from "../../sample";
 import { maybe } from "../../maybe";
+import { maybeContract } from "../contract";
 import { Memory } from "../types";
 import { MISTAKES } from "../../../config";
 
@@ -12,8 +13,14 @@ export const MEMORY: Memory = [
   { template: () => "OK, but thanks.", chance: 1.0 },
   { template: () => "No no, thank you.", chance: 1.0 },
   { template: () => "Thanks again.", chance: 1.0 },
-  { template: () => "I am eternally in your debt.", chance: 1.0 },
-  { template: () => `I am so ${maybe("very")} grateful.`, chance: 1.0 },
+  {
+    template: () => `${maybeContract("I am")} eternally in your debt.`,
+    chance: 1.0
+  },
+  {
+    template: () => `${maybeContract("I am")} so ${maybe("very")} grateful.`,
+    chance: 1.0
+  },
   { template: () => `I ${maybe("really")} appreciate it.`, chance: 1.0 },
   {
     template: () => `Thanks a ${sample(["bunch", "million", "ton", "lot"])}.`,
@@ -29,7 +36,11 @@ export const MEMORY: Memory = [
   { template: () => `All my love.`, chance: 1.0 },
   { template: () => `I do not know what to say.`, chance: 1.0 },
   { template: () => `What would I do without you?`, chance: 1.0 },
-  { template: () => `Words cannot describe how thankful I am.`, chance: 1.0 },
+  {
+    template: () =>
+      `Words cannot describe how thankful ${maybeContract("I am")}.`,
+    chance: 1.0
+  },
   {
     template: () =>
       `My gratitude ${sample(["knows no bounds", "is boundless"])}.`,
