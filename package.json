@@ -8,7 +8,7 @@
     "@types/node": "12.12.3",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
-    "@types/react-helmet": "5.0.13",
+    "@types/react-helmet": "5.0.14",
     "howler": "2.1.2",
     "humanization": "6.3.1",
     "queryparams": "0.1.0",
