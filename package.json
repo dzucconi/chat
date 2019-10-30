@@ -16,7 +16,7 @@
     "react-dom": "16.11.0",
     "react-helmet": "5.2.1",
     "react-scripts": "3.2.0",
-    "styled-components": "4.4.0",
+    "styled-components": "4.4.1",
     "typescript": "3.6.4",
     "use-audiate": "1.0.0"
   },
