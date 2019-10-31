@@ -101,8 +101,8 @@ export const MEMORY: Memory = [
       )} sorry!`,
     chance: 1.0
   },
-  { template: () => "I beg your pardon", chance: 1.0 },
-  { template: () => "My bad", chance: 1.0 },
+  { template: () => "I beg your pardon.", chance: 1.0 },
+  { template: () => "My bad.", chance: 1.0 },
   { template: () => "Excuse me for interrupting.", chance: 1.0 },
   {
     template: () =>
@@ -110,10 +110,13 @@ export const MEMORY: Memory = [
     chance: 1.0
   },
   { template: () => `Pardon me${maybe(" for being so rude.")}`, chance: 1.0 },
-  { template: () => "I crave pardon", chance: 1.0 },
+  { template: () => "I crave pardon.", chance: 1.0 },
   {
     template: () =>
-      `I know ${maybeContract("I have")} ${maybe("truly")} hurt you.`,
+      `I know ${maybeContract("I have")} ${maybe("truly")} hurt you${sample([
+        ".",
+        "..."
+      ])}`,
     chance: 1.0
   },
   {
@@ -152,6 +155,10 @@ export const MEMORY: Memory = [
   },
   {
     template: () => `I ${maybe("just")} ${maybeContract("was not")} thinking.`,
+    chance: 1.0
+  },
+  {
+    template: () => `What do you ${sample(["want", "need from me"])}?`,
     chance: 1.0
   }
 ];
