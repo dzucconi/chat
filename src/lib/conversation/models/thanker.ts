@@ -33,19 +33,29 @@ export const MEMORY: Memory = [
     chance: 1.0
   },
   { template: () => `Accept my endless gratitude.`, chance: 1.0 },
-  { template: () => `All my love.`, chance: 1.0 },
-  { template: () => `I do not know what to say.`, chance: 1.0 },
+  { template: () => `All ${maybe("of")} my love.`, chance: 1.0 },
+  {
+    template: () => `I ${maybeContract("do not")} know what to say.`,
+    chance: 1.0
+  },
   { template: () => `What would I do without you?`, chance: 1.0 },
   {
     template: () =>
-      `Words cannot describe how thankful ${maybeContract("I am")}.`,
+      `Words cannot describe how ${sample([
+        "thankful",
+        "grateful",
+        "appreciative",
+        "indebted",
+        "pleased"
+      ])} I am.`,
     chance: 1.0
   },
   {
     template: () =>
       `My gratitude ${sample(["knows no bounds", "is boundless"])}.`,
-    chance: 1.0
-  }
+    chance: 0.9
+  },
+  { template: () => "Thank you truly.", chance: 1.0 }
 ];
 
 export default {
