@@ -45,18 +45,18 @@ export const MEMORY: Memory = [
   },
   {
     template: () =>
-      `${maybeContract("I am")} ${sample([
-        "so",
+      `${maybeContract("I am")} ${maybe("so")} ${maybe("so")} ${sample([
         "very",
         "terribly",
         "extremely",
         "immensely",
         "acutely",
-        "truly"
-      ])} sorry.`,
+        "truly",
+        `fucking`
+      ])} sorry${sample([".", ".", ".", "!", "..."])}`,
     chance: 1.0
   },
-  { template: () => "My apologies.", chance: 1.0 },
+  { template: () => `My ${maybe("sincerest")} apologies.`, chance: 1.0 },
   { template: () => "My fault", chance: 1.0 },
   { template: () => "My mistake.", chance: 1.0 },
   {
@@ -69,7 +69,7 @@ export const MEMORY: Memory = [
   { template: () => "Oh, my bad.", chance: 1.0 },
   { template: () => `Pardon ${maybe("me")}`, chance: 1.0 },
   {
-    template: () => `Please accept our ${maybe("sincerest")} apologies.`,
+    template: () => `Please accept my ${maybe("sincerest")} apologies.`,
     chance: 1.0
   },
   {
@@ -96,7 +96,9 @@ export const MEMORY: Memory = [
   { template: () => `${maybeContract("That is")} my fault.`, chance: 1.0 },
   {
     template: () =>
-      `${sample(["woops", "shit", "fuck"])}! ${maybe("so")} sorry!`,
+      `${sample(["woops", "shit", "fuck"])}! ${maybe("so")} ${maybe(
+        "so"
+      )} sorry!`,
     chance: 1.0
   },
   { template: () => "I beg your pardon", chance: 1.0 },

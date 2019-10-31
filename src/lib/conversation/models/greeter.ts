@@ -35,8 +35,8 @@ export const MEMORY: Memory = [
   { template: () => "Hello", chance: 1.0 },
   { template: () => "Yo", chance: 1.0 },
   { template: () => "Yo", chance: 1.0 },
-  { template: () => "Yo", chance: 1.0 },
-  { template: () => "Sup", chance: 1.0 },
+  { template: () => `Yo${maybe(sample(["!", "?", "!?"]))}`, chance: 1.0 },
+  { template: () => `Sup${maybe(sample(["!", "?", "!?"]))}`, chance: 1.0 },
   {
     template: () => `${maybe("Hey,")} ${maybeContract("What is")} up`,
     chance: 1.0
@@ -45,7 +45,7 @@ export const MEMORY: Memory = [
     template: () => `${maybe("Hey,")} ${maybeContract("How is")} it going`,
     chance: 1.0
   },
-  { template: () => "What", chance: 1.0 },
+  { template: () => `What${maybe("?")}`, chance: 1.0 },
   {
     template: () =>
       `${sample(["What are you", "Whatcha"])} ${sample(["up to", "doing"])}?`,
@@ -64,7 +64,24 @@ export const MEMORY: Memory = [
         evening: "evening"
       })}${maybe("!")}`,
     chance: 1.0
-  }
+  },
+  {
+    template: () =>
+      `${timeOfDay({
+        morning: "Morning",
+        afternoon: "Afternoon",
+        evening: "Evening"
+      })}.`,
+    chance: 1.0
+  },
+  {
+    template: () =>
+      `${maybe(sample(["Hey,", "Hi,", "Yo,"]))} ${maybeContract(
+        "What is"
+      )} new?`,
+    chance: 1.0
+  },
+  { template: () => `${maybeContract("What is")} happening?`, chance: 1.0 }
 ];
 
 export default {
