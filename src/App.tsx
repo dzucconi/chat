@@ -5,7 +5,6 @@ import { SKIN } from "./styles";
 import { Model, models } from "./lib/conversation";
 import { Head } from "./components/Head";
 import { Chat } from "./components/Chat";
-import { EnableAudio } from "./components/EnableAudio";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -40,13 +39,11 @@ export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
 
       <GlobalStyles />
 
-      <EnableAudio>
-        <Container>
-          {new Array(amount).fill(undefined).map((_, index) => (
-            <Chat key={index} autoPlay={autoPlay} model={model} />
-          ))}
-        </Container>
-      </EnableAudio>
+      <Container>
+        {new Array(amount).fill(undefined).map((_, index) => (
+          <Chat key={index} autoPlay={autoPlay} model={model} />
+        ))}
+      </Container>
     </>
   );
 };
