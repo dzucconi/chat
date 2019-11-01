@@ -4,10 +4,12 @@ import { mistakes } from "humanization";
 import { Model } from "./lib/conversation";
 
 const DEFAULT_VIEWPORT_WIDTH = 320;
+const DEFAULT_MESSAGE_HEIGHT = 45;
 
 export const {
   autoPlay,
   amount,
+  maxMessagesLength,
   model,
   index,
   pauseMin,
@@ -18,6 +20,7 @@ export const {
 }: {
   autoPlay: boolean;
   amount: number;
+  maxMessagesLength: number;
   model: Model;
   index: boolean;
   pauseMin: number;
@@ -30,6 +33,10 @@ export const {
   amount:
     Math.floor(document.documentElement.clientWidth / DEFAULT_VIEWPORT_WIDTH) ||
     1,
+  maxMessagesLength:
+    Math.floor(
+      document.documentElement.clientHeight / DEFAULT_MESSAGE_HEIGHT
+    ) || 20,
   model: "apologizer",
   index: false,
   pauseMin: 15,

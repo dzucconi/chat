@@ -11,7 +11,12 @@ import { Input } from "../Input";
 import { Messages } from "../Messages";
 import { TMessage as Message } from "../Message";
 import { Indicator } from "../Indicator";
-import { pauseMin, pauseMax, cognitionPause } from "../../config";
+import {
+  pauseMin,
+  pauseMax,
+  cognitionPause,
+  maxMessagesLength
+} from "../../config";
 
 export const Container = styled.div`
   position: relative;
@@ -24,8 +29,6 @@ export const Container = styled.div`
   margin: 0 auto;
   background-color: ${SKIN.bg};
 `;
-
-const MAX_MESSAGES_LENGTH = 30;
 
 enum Mode {
   RESTING,
@@ -57,7 +60,7 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         input: "",
         messages: nextMessages.slice(
-          Math.max(0, nextMessages.length - MAX_MESSAGES_LENGTH)
+          Math.max(0, nextMessages.length - maxMessagesLength)
         )
       };
     }
@@ -85,7 +88,7 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         mode: Mode.RESTING,
         messages: nextMessages.slice(
-          Math.max(nextMessages.length - MAX_MESSAGES_LENGTH, 0)
+          Math.max(nextMessages.length - maxMessagesLength, 0)
         )
       };
     }
