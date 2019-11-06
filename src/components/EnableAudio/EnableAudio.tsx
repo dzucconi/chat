@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import { useAudiate } from "use-audiate";
 
+import { audio } from "../../audio";
 import { isTouchDevice } from "../../lib/isTouchDevice";
-import { AudioIndicator } from "../AudioIndicator";
 import { SKIN } from "../../styles";
 
 const isTouch = isTouchDevice();
@@ -33,20 +32,14 @@ interface Props {
 }
 
 export const EnableAudio: React.FC<Props> = ({ children }) => {
-  const [audioContextState] = useAudiate();
-  const [isEnabled, setEnabled] = useState(false);
-  const handleClick = useCallback(() => setEnabled(true), []);
+  const [isEnabled, setEnabled] = useState(!isTouch);
 
-  if (audioContextState === "running" || isEnabled) {
-    return (
-      <>
-        <AudioIndicator
-          audioContextState={isEnabled ? "running" : audioContextState}
-        />
-        {children}
-      </>
-    );
-  }
+  const handleClick = useCallback(() => {
+    audio.type.play();
+    setEnabled(true);
+  }, []);
+
+  if (isEnabled) return <>{children}</>;
 
   return (
     <Enabler onClick={handleClick}>

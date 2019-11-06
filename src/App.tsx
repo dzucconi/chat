@@ -5,6 +5,7 @@ import { SKIN } from "./styles";
 import { Model, models } from "./lib/conversation";
 import { Head } from "./components/Head";
 import { Chat } from "./components/Chat";
+import { EnableAudio } from "./components/EnableAudio";
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -34,7 +35,7 @@ export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
   }, [model]);
 
   return (
-    <>
+    <EnableAudio>
       <Head skin={SKIN} />
 
       <GlobalStyles />
@@ -44,6 +45,6 @@ export const App: React.FC<Props> = ({ amount, autoPlay, model }) => {
           <Chat key={index} autoPlay={autoPlay} model={model} />
         ))}
       </Container>
-    </>
+    </EnableAudio>
   );
 };
