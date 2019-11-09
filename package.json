@@ -42,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "4.1.22"
+    "@types/styled-components": "4.4.0"
   }
 }
