@@ -1266,10 +1266,10 @@
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
   integrity sha512-OCutwjDZ4aFS6PB1UZ988C4YgwlBHJd6wCeQqaLdmadZ/7e+w79+hbMUFC1QXDNCmdyoRfAFdm0RypzwR+Qpag==
 
-"@types/howler@2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.1.1.tgz#b2ba53009cc8415da5bb01d625a734babba11435"
-  integrity sha512-YLwc9L853r85WqZk4xCiROGGodmlAYlKb0rQWABt4opLd6QHn2QLXIApa6vRNqjZxkzbiPs6eZskaRGOw5fDAA==
+"@types/howler@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@types/howler/-/howler-2.1.2.tgz#318a9cac65eeb8ed7d453dd70c9367067d35137b"
+  integrity sha512-gK7snhJcWVvTdiE6cCBAjeZ9od9Q8LmB5lEyB/3n6jMJOLn7EQ8Zvmkz8XPhnN5xB+b7QzCiqxJY3YiHrM3Jpg==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
