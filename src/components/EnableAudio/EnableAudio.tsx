@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 
-import { audio } from "../../audio";
+import { play } from "../../audio";
 import { isTouchDevice } from "../../lib/isTouchDevice";
 import { SKIN } from "../../styles";
+import { forceEnable } from "../../config";
 
 const isTouch = isTouchDevice();
 
@@ -32,10 +33,10 @@ interface Props {
 }
 
 export const EnableAudio: React.FC<Props> = ({ children }) => {
-  const [isEnabled, setEnabled] = useState(!isTouch);
+  const [isEnabled, setEnabled] = useState(!(forceEnable || isTouch));
 
   const handleClick = useCallback(() => {
-    audio.type.play();
+    play("type");
     setEnabled(true);
   }, []);
 
@@ -43,7 +44,7 @@ export const EnableAudio: React.FC<Props> = ({ children }) => {
 
   return (
     <Enabler onClick={handleClick}>
-      {isTouch ? "Tap" : "Click"} to enable audio
+      {isTouch ? "Tap" : "Click"} to enable
     </Enabler>
   );
 };

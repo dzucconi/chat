@@ -16,7 +16,9 @@ export const {
   pauseMax,
   cognitionPause,
   readingSpeed,
-  entropy
+  entropy,
+  mute,
+  forceEnable
 }: {
   autoPlay: boolean;
   amount: number;
@@ -28,6 +30,8 @@ export const {
   cognitionPause: number;
   readingSpeed: number;
   entropy: number;
+  mute: false;
+  forceEnable: boolean;
 } = parameters({
   autoPlay: true,
   amount:
@@ -43,7 +47,9 @@ export const {
   pauseMax: 250,
   cognitionPause: 250,
   readingSpeed: 200.0,
-  entropy: 1
+  entropy: 1,
+  mute: false,
+  forceEnable: false
 });
 
 export const MISTAKES = [

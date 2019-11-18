@@ -10,6 +10,8 @@ import sent from "./sent.mp3";
 // @ts-ignore
 import received from "./received.mp3";
 
+import { mute } from "../config";
+
 export const audio = {
   // Typing
   type: new Howl({ src: [type], autoplay: false, preload: true, volume: 0.33 }),
@@ -28,4 +30,9 @@ export const audio = {
   // Alerts
   sent: new Howl({ src: [sent], autoplay: false, preload: true }),
   received: new Howl({ src: [received], autoplay: false, preload: true })
+};
+
+export const play = (key: keyof typeof audio) => {
+  if (mute) return;
+  return audio[key].play();
 };

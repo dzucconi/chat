@@ -2,7 +2,7 @@ import React, { useReducer, useCallback, useEffect, useRef } from "react";
 import { simulateTyping, simulateStrokeTiming } from "humanization";
 import styled from "styled-components";
 
-import { audio } from "../../audio";
+import { play } from "../../audio";
 import { SKIN } from "../../styles";
 import { wait } from "../../lib/wait";
 import { estimate } from "../../lib/estimate";
@@ -119,7 +119,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
       e.preventDefault();
       if (state.input === "") return;
       dispatch({ type: "SEND" });
-      audio.sent.play();
+      play("sent");
     },
     [state.input]
   );
@@ -141,7 +141,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
 
     // Respond
     dispatch({ type: "RESPOND", payload: { body: output } });
-    audio.received.play();
+    play("received");
   }, [model, state.messages]);
 
   const handleMe = useCallback(async () => {
@@ -156,7 +156,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
       stream: humanized.stream,
       onStroke: ({ stroke, previousStroke }) => {
         const sound = stroke.character === " " ? "space" : "type";
-        audio[sound].play();
+        play(sound);
 
         dispatch({
           type: "KEYPRESS",
@@ -174,7 +174,7 @@ export const Chat: React.FC<Props> = ({ autoPlay, model }) => {
     // Send it
     await wait(500);
     dispatch({ type: "SEND" });
-    audio.sent.play();
+    play("sent");
   }, [model, state.messages]);
 
   // Deal with each message in turn
