@@ -10923,10 +10923,10 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-audiate@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/use-audiate/-/use-audiate-1.0.6.tgz#ee20e989a56baa501c8ff59eeb0586fc8c9771f5"
-  integrity sha512-UjM8wUY8nDQxuPCIHuDjeKYC3ZbUHlJBvuyfoqX7nbteIxiQQfYoX2OTuHahYiaJD6Jrll0M/HTXhQHl1turgQ==
+use-audiate@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/use-audiate/-/use-audiate-1.0.7.tgz#83138243fe2db168c0899308d61180d3a8ac6eba"
+  integrity sha512-Rshhf2MYf3+wZGJ95XTuDHaWswq8jSny9IZBBeZaYsLkBDNAD59L44cpNCVQd99NV7YejL3jIePG8o8asHaFqA==
   dependencies:
     audiate "^2.0.0"
 
