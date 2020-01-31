@@ -18,7 +18,7 @@
     "react-scripts": "3.3.1",
     "styled-components": "5.0.0",
     "typescript": "3.7.5",
-    "use-audiate": "1.0.14"
+    "use-audiate": "1.0.15"
   },
   "scripts": {
     "start": "react-scripts start",
