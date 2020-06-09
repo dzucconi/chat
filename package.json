@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/howler": "2.1.2",
+    "@types/howler": "2.2.0",
     "@types/jest": "24.9.1",
     "@types/node": "12.12.46",
     "@types/react": "16.9.35",
