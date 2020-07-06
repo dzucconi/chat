@@ -16,7 +16,7 @@
     "react-dom": "16.13.0",
     "react-helmet": "5.2.1",
     "react-scripts": "3.4.0",
-    "styled-components": "5.0.1",
+    "styled-components": "5.1.1",
     "typescript": "3.9.6",
     "use-audiate": "1.0.22"
   },
@@ -42,6 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "4.4.3"
+    "@types/styled-components": "5.1.1"
   }
 }
