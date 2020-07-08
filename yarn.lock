@@ -9341,10 +9341,10 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-qs@^6.3.0:
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.0.tgz#d1297e2a049c53119cb49cca366adbbacc80b409"
-  integrity sha512-27RP4UotQORTpmNQDX8BHPukOnBP3p1uUJY5UnDhaJB+rMt9iMsok724XL+UHU23bEFOHRMQ2ZhI99qOWUMGFA==
+qs@^6.9.4:
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
+  integrity sha512-A1kFqHekCTM7cz0udomYUoYNWjBebHm/5wzU/XqrBRBNWectVH0QIiN+NEcZ0Dte5hvzHwbr8+XQmguPhJ6WdQ==
 
 qs@~6.5.2:
   version "6.5.2"
@@ -9359,12 +9359,12 @@ query-string@^4.1.0:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-queryparams@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/queryparams/-/queryparams-0.1.0.tgz#8a467d637231e96f26b401bf622943d100e9fd55"
-  integrity sha512-/yUHhW2rwzengvqCjIUx3O6e5YRB5euXMjygm8CzKB+FRzgSZAhBVTEF8AyOuRi8H2WQmRZ5c8f/mMtS0aSEWg==
+queryparams@1.0.35:
+  version "1.0.35"
+  resolved "https://registry.yarnpkg.com/queryparams/-/queryparams-1.0.35.tgz#01ccd32a1ad7cf0e51a70fce39401d42870d9aee"
+  integrity sha512-SYghWWVrb1OwJ0v6JFW+GcyXLroPmUypoCYIGP8WnAqjtq4SA5Ku85zyzNEDFIwcDqzDZ4tv7skFit7ADeNRnA==
   dependencies:
-    qs "^6.3.0"
+    qs "^6.9.4"
 
 querystring-es3@^0.2.0:
   version "0.2.1"

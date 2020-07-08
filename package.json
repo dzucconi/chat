@@ -11,7 +11,7 @@
     "@types/react-helmet": "5.0.16",
     "howler": "2.2.0",
     "humanization": "6.3.1",
-    "queryparams": "0.1.0",
+    "queryparams": "1.0.35",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-helmet": "5.2.1",
