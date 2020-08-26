@@ -6,7 +6,7 @@
     "@types/howler": "2.2.1",
     "@types/jest": "24.9.1",
     "@types/node": "12.12.54",
-    "@types/react": "16.9.47",
+    "@types/react": "16.9.48",
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "5.0.16",
     "howler": "2.2.0",
