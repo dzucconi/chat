@@ -17,7 +17,7 @@
     "react-helmet": "5.2.1",
     "react-scripts": "3.4.4",
     "styled-components": "5.0.1",
-    "typescript": "3.9.8",
+    "typescript": "3.9.9",
     "use-audiate": "1.0.22"
   },
   "scripts": {
