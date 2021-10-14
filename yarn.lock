@@ -2337,10 +2337,10 @@
   dependencies:
     "@types/react" "^16"
 
-"@types/react-helmet@5.0.18":
-  version "5.0.18"
-  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.18.tgz#61297e7158e8ee2b6fec993c10ad32f7a800f2ad"
-  integrity sha512-/seLJ58aJJWwKy+yEMjU7oAIqLJ+VOibcK7KuA1qYI88IFj4HyAreL5xmbZQPkVhzES9LxzO3RL2IrBTKsnp3w==
+"@types/react-helmet@5.0.19":
+  version "5.0.19"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.19.tgz#e709f192eac0b873693a6f831bb2dbc7085a5c19"
+  integrity sha512-Ub4sOSkg/64UYRJG33kYLzMV2OsgD923DXS09K3Pp2Qsq0AId5Ih59NvX2eXDIUQPfxO3rj0rFeVxurN8IUksQ==
   dependencies:
     "@types/react" "*"
 
